@@ -11,12 +11,36 @@ const Index = () => {
   ];
 
   const services = [
-    { icon: 'Palette', title: 'Разработка фирменного стиля и айдентики' },
-    { icon: 'FileText', title: 'Дизайн и макетирование полиграфии' },
-    { icon: 'Award', title: 'Брендирование сувенирной продукции' },
-    { icon: 'Layout', title: 'Проектирование UX и дизайн UI' },
-    { icon: 'Globe', title: 'Создание и макетирование сайтов' },
-    { icon: 'Code', title: 'Верстка на Tilda и HTML/CSS' }
+    { 
+      icon: 'Palette', 
+      title: 'Разработка фирменного стиля и айдентики',
+      description: 'От концепции до готового брендбука. Логотипы, цветовые схемы, типографика, фирменные элементы.'
+    },
+    { 
+      icon: 'FileText', 
+      title: 'Дизайн и макетирование полиграфии',
+      description: 'От визиток до многостраничных каталогов. Полная допечатная подготовка и технические требования.'
+    },
+    { 
+      icon: 'Award', 
+      title: 'Брендирование сувенирной продукции',
+      description: 'Применение фирменного стиля на различных носителях. Сувениры, упаковка, POS-материалы.'
+    },
+    { 
+      icon: 'Layout', 
+      title: 'Проектирование UX и дизайн UI',
+      description: 'Исследование пользователей, wireframes, интерактивные прототипы, пользовательские интерфейсы.'
+    },
+    { 
+      icon: 'Globe', 
+      title: 'Создание и макетирование сайтов',
+      description: 'Полный цикл веб-дизайна: от концепции и прототипов до готовых дизайн-макетов для разработки.'
+    },
+    { 
+      icon: 'Code', 
+      title: 'Верстка на Tilda и HTML/CSS',
+      description: 'Техническая реализация проектов на Tilda (Zero Block, кастомный CSS), чистая адаптивная верстка.'
+    }
   ];
 
   const portfolioItems = [
@@ -138,17 +162,20 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="p-6 border-border/50 hover:shadow-lg hover:border-primary/20 transition-all group">
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
                     <Icon name={service.icon as any} size={24} className="text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold font-montserrat leading-tight">
+                    <h3 className="font-semibold font-montserrat leading-tight mb-3">
                       {service.title}
                     </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
               </Card>
