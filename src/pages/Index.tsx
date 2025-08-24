@@ -44,9 +44,36 @@ const Index = () => {
   ];
 
   const portfolioItems = [
-    { title: 'Фирменный стиль IT-компании', category: 'Брендинг', image: '/img/a38531ad-3ba0-4461-b631-a465abcaa265.jpg' },
-    { title: 'Адаптивный интернет-магазин', category: 'Веб-дизайн', image: '/img/f98ad27b-e1f2-4722-a4d2-5d9fcbd20642.jpg' },
-    { title: 'Многостраничный каталог', category: 'Полиграфия', image: '/img/d715298e-96b0-41bb-8a12-39916482e178.jpg' }
+    {
+      title: 'Веб-платформа для бизнеса',
+      category: 'Веб-дизайн',
+      image: '/img/4c64ea4f-f273-410d-bdbe-52d7f3b1add6.jpg'
+    },
+    {
+      title: 'Фирменный стиль компании',
+      category: 'Айдентика',
+      image: '/img/4cff8add-e284-4955-ac97-daa3f52d9a78.jpg'
+    },
+    {
+      title: 'Мобильное приложение',
+      category: 'UI/UX дизайн',
+      image: '/img/ba5be904-0751-4047-8cc4-74ebaadd4fe7.jpg'
+    },
+    {
+      title: 'Журнал и полиграфия',
+      category: 'Печатный дизайн',
+      image: '/img/27717508-df55-4d6a-a119-697c3aa2a307.jpg'
+    },
+    {
+      title: 'Интернет-магазин',
+      category: 'E-commerce',
+      image: '/img/7f6fa9aa-efb7-4b5e-97b7-f3c1910e7087.jpg'
+    },
+    {
+      title: 'Упаковка и брендинг',
+      category: 'Packaging',
+      image: '/img/ed468842-174d-4338-9e5a-549d35d1cdfc.jpg'
+    }
   ];
 
   return (
@@ -196,26 +223,31 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden border-border/50 hover:shadow-lg transition-shadow group">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+          {/* Portfolio Slider */}
+          <div className="relative">
+            <div className="flex overflow-x-auto gap-6 pb-4 scroll-smooth" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
+              {portfolioItems.map((item, index) => (
+                <div key={index} className="flex-shrink-0 w-80">
+                  <Card className="overflow-hidden border-border/50 hover:shadow-lg transition-all duration-300 group hover:-translate-y-2">
+                    <div className="aspect-square overflow-hidden">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <CardHeader className="p-4">
+                      <CardTitle className="font-montserrat text-lg leading-tight">{item.title}</CardTitle>
+                      <CardDescription className="mt-2">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors">
+                          {item.category}
+                        </Badge>
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
                 </div>
-                <CardHeader>
-                  <CardTitle className="font-montserrat text-lg">{item.title}</CardTitle>
-                  <CardDescription>
-                    <Badge variant="secondary" className="bg-primary text-primary-foreground">
-                      {item.category}
-                    </Badge>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
